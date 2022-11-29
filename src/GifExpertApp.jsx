@@ -9,7 +9,15 @@ export const GifExpertApp = () => {
     const [categories, setCategories] = useState( [] )
 
     const onAddCategory = (newCategory) => {
-        setCategories( [newCategory, ...categories] );
+
+        const categoryLowerCase = newCategory.toLowerCase()
+        let categoriesLowerCase = categories.map(item => {
+            return item.toLowerCase()
+        })
+
+        if(categoriesLowerCase.includes(categoryLowerCase)) return;
+
+        setCategories( [categoryLowerCase, ...categories] );
     }
 
     

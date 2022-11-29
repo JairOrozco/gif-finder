@@ -8,8 +8,8 @@ export const GifExpertApp = () => {
 
     const [categories, setCategories] = useState( [] )
 
-    const onAddCategory = () => {
-        setCategories( [...categories, 'Valorant'] );
+    const onAddCategory = (newCategory) => {
+        setCategories( [newCategory, ...categories] );
     }
 
     
@@ -21,7 +21,8 @@ export const GifExpertApp = () => {
 
             {/* Buscador de gifs */}
             <AddCategory 
-                setCategories={ setCategories }
+                onNewCategory={ (value) => onAddCategory(value) }
+                //setCategories={ setCategories }
             />
 
 
@@ -29,9 +30,11 @@ export const GifExpertApp = () => {
             <button onClick={ onAddCategory }> Agregar </button>
             
             <ol>
-                { categories.map(categoryItem => {
-                    return <li key={ categoryItem }> {categoryItem} </li>
-                }) }
+                { 
+                    categories.map( (category) => {
+                        return <li key={ category }> {category} </li>
+                    } ) 
+                }
             </ol>
 
                 {/* Gif item */}

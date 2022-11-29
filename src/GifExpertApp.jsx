@@ -1,5 +1,8 @@
 import { useState } from "react";
 
+// Componentes
+import { AddCategory } from "./components/AddCategory";
+
 
 export const GifExpertApp = () => {
 
@@ -17,6 +20,7 @@ export const GifExpertApp = () => {
             <h1>GifExpertApp</h1>
 
             {/* Buscador de gifs */}
+            <AddCategory />
 
 
             {/* Listado de gifs encontrados */}

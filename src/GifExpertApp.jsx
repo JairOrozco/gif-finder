@@ -3,9 +3,13 @@ import { useState } from "react";
 
 export const GifExpertApp = () => {
 
-    const [categories, setCategories] = useState(['Dragon Ball', 'One Punch'])
+    const [categories, setCategories] = useState( ['Dragon Ball', 'One Punch'] )
 
-    console.log(categories)
+    const onAddCategory = () => {
+        setCategories( [...categories, 'Valorant'] );
+    }
+
+    
 
     return (
         <>
@@ -16,11 +20,14 @@ export const GifExpertApp = () => {
 
 
             {/* Listado de gifs encontrados */}
+            <button onClick={ onAddCategory }> Agregar </button>
+            
             <ol>
                 { categories.map(categoryItem => {
                     return <li key={ categoryItem }> {categoryItem} </li>
                 }) }
             </ol>
+
                 {/* Gif item */}
         </>
     )

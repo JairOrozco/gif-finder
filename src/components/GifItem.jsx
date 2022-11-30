@@ -1,9 +1,13 @@
 
 
-export const GifItem = ({ title }) => {
+export const GifItem = ({ title, url }) => {
+
     return (
         <>
-            <p> { title } </p>
+            <figure>
+                <img src={ url } alt={ title }/>
+                <figcaption> { title } </figcaption>
+            </figure>
         </>
     )
 }

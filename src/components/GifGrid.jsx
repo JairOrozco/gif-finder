@@ -9,9 +9,8 @@ export const GifGrid = ( { category } ) => {
     const [dataImages, setDataImages] = useState([]);
 
     const getDataImages = async () => {
-        const dataImages = await getDataGifs(category);
-        setDataImages(dataImages)
-        return dataImages
+        const apiDataImages = await getDataGifs(category);
+        setDataImages(apiDataImages)
     }
     
     useEffect( () => {
@@ -22,15 +21,17 @@ export const GifGrid = ( { category } ) => {
     return (
         <>
             <h3> { category } </h3>
-            <ol>
+            <div className="card-grid"> 
                 {
-                    dataImages.map( ({ id, title }) => {
-                        return (
-                            <li key={ id }> { title } </li>
+                    dataImages.map( ( data ) => (
+                            <GifItem 
+                                key={ data.id }
+                                {...data}
+                            />
                         )
-                    })
+                    )
                 }
-            </ol>
+            </div>
         </>
     )
 }

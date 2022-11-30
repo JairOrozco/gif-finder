@@ -10,9 +10,11 @@ export const useFetchGifs = ( category ) => {
     const [isLoading, setIsLoading] = useState( true );
 
     const getDataImages = async () => {
+
         const apiDataImages = await getDataGifs(category);
         setDataImages( apiDataImages )
         setIsLoading( false )
+        
     }
     
     useEffect( () => {

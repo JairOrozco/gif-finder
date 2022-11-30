@@ -1,21 +1,18 @@
-import { useState, useEffect } from "react";
 
-// Función de fetch
-import { getDataGifs } from "../utils/getDataGifs";
+// Componentes y funciones
 import { GifItem } from "./GifItem";
+import { useFetchGifs } from "../hooks/useFetchGifs";
+
+
+
 
 export const GifGrid = ( { category } ) => {
 
-    const [dataImages, setDataImages] = useState([]);
 
-    const getDataImages = async () => {
-        const apiDataImages = await getDataGifs(category);
-        setDataImages(apiDataImages)
-    }
-    
-    useEffect( () => {
-        getDataImages();
-    }, []);
+    const { dataImages, isLoading } = useFetchGifs( category )
+
+    console.log( { isLoading } )
+
 
 
     return (
